@@ -15,10 +15,21 @@ Como ejercicio adicional y completamente opcional, al terminar de resolver este 
 */
 
 function nFactorial(n) {
+  if(n < 2){
+    return 1;
+  }
+  return n * nFactorial(n - 1);
+  // opcion2 con operador ternario: return n < 2 ? 1 : n * nFactorial(n-1);
 }
 
 function nFibonacci(n) {
+  if(n < 2){
+    return n;
+  }
+  return nFibonacci(n-2) + nFibonacci(n-1);
 }
+// opcion2 con operador ternario: return n < 2 ? n : nFibonacci(n-2) + nFibonacci(n-1);
+
 
 /*
 Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde el primer elemento que ingresa es el primero que se quita. Definir los siguientes métodos:
@@ -29,8 +40,20 @@ Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde e
 Pueden utilizar class o función constructora.
 */
 
-function Queue() {
+function Queue(){
+  this.arr = [];
+}
 
+Queue.prototype.enqueue = function(value){
+  return this.arr.push(value);
+}
+
+Queue.prototype.dequeue = function(){
+  return this.arr.shift();
+}
+
+Queue.prototype.size = function(){
+  return this.arr.length;
 }
 
 // No modifiquen nada debajo de esta linea
